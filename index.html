@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Angelina Silvestri</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+  body {
+    background: #FDF6EE;
+    color: #2C2318;
+    font-family: 'DM Sans', sans-serif;
+    min-height: 100vh;
+    min-height: 100dvh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow-x: hidden;
+  }
+
+  .deco-circle-1 {
+    position: fixed;
+    width: 240px;
+    height: 240px;
+    border-radius: 50%;
+    background: #F7CFC2;
+    top: -80px;
+    right: -60px;
+    opacity: 0.45;
+    pointer-events: none;
+  }
+
+  .deco-circle-2 {
+    position: fixed;
+    width: 170px;
+    height: 170px;
+    border-radius: 50%;
+    background: #C5D9B8;
+    bottom: -50px;
+    left: -50px;
+    opacity: 0.4;
+    pointer-events: none;
+  }
+
+  .deco-circle-3 {
+    position: fixed;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: #EAC97E;
+    bottom: 90px;
+    right: 30px;
+    opacity: 0.3;
+    pointer-events: none;
+  }
+
+  .container {
+    position: relative;
+    z-index: 1;
+    width: min(480px, 88vw);
+    padding: 2.5rem 0 3rem;
+  }
+
+  .rule-top {
+    width: 100%;
+    height: 1.5px;
+    background: #2C2318;
+    margin-bottom: 1.4rem;
+    transform-origin: left;
+    animation: expand 0.7s cubic-bezier(0.16,1,0.3,1) forwards;
+  }
+
+  @keyframes expand {
+    from { transform: scaleX(0); }
+    to { transform: scaleX(1); }
+  }
+
+  .label {
+    font-size: 10px;
+    font-weight: 300;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #9C8A78;
+    margin-bottom: 0.4rem;
+    animation: fadein 0.8s 0.2s both;
+  }
+
+  .name {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.4rem, 11vw, 4rem);
+    font-weight: 700;
+    line-height: 0.93;
+    letter-spacing: -0.02em;
+    color: #2C2318;
+    margin-bottom: 0.5rem;
+    animation: fadein 0.8s 0.3s both;
+  }
+
+  .name em {
+    font-style: italic;
+    font-weight: 400;
+    color: #C4613A;
+  }
+
+  .tagline {
+    font-size: 9px;
+    font-weight: 300;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    color: #9C8A78;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+    animation: fadein 0.8s 0.4s both;
+  }
+
+  .links {
+    display: grid;
+    gap: 0;
+    animation: fadein 0.8s 0.5s both;
+  }
+
+  .link-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 0;
+    min-height: 62px;
+    border-top: 0.5px solid #D9CDBF;
+    text-decoration: none;
+    color: #2C2318;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: padding 0.2s cubic-bezier(0.16,1,0.3,1);
+  }
+
+  .link-item:last-child {
+    border-bottom: 0.5px solid #D9CDBF;
+  }
+
+  .link-item::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: #F0E8DE;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.25s cubic-bezier(0.16,1,0.3,1);
+    z-index: 0;
+    border-radius: 4px;
+  }
+
+  .link-item:active::before,
+  .link-item:hover::before {
+    transform: scaleX(1);
+  }
+
+  .link-item:active,
+  .link-item:hover {
+    padding-left: 0.7rem;
+    padding-right: 0.7rem;
+  }
+
+  .link-left {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .link-platform {
+    font-size: 9px;
+    font-weight: 400;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #9C8A78;
+  }
+
+  .link-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+    color: #2C2318;
+  }
+
+  .arrow {
+    font-size: 18px;
+    position: relative;
+    z-index: 1;
+    color: #C4613A;
+    padding-left: 12px;
+    flex-shrink: 0;
+    transition: transform 0.2s cubic-bezier(0.16,1,0.3,1);
+  }
+
+  .link-item:active .arrow,
+  .link-item:hover .arrow {
+    transform: translate(3px, -3px);
+  }
+
+  .footer-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1.4rem;
+    animation: fadein 0.8s 0.9s both;
+  }
+
+  .footer {
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #C4B9AC;
+  }
+
+  .dot-row {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+  }
+
+  .dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+  }
+
+  .dot-1 { background: #F7CFC2; }
+  .dot-2 { background: #C5D9B8; }
+  .dot-3 { background: #EAC97E; }
+
+  @keyframes fadein {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @media (min-width: 480px) {
+    .deco-circle-1 { width: 340px; height: 340px; top: -120px; right: -80px; }
+    .deco-circle-2 { width: 220px; height: 220px; bottom: -60px; left: -60px; }
+    .deco-circle-3 { width: 100px; height: 100px; bottom: 120px; right: 60px; }
+    .tagline { font-size: 10px; letter-spacing: 0.15em; }
+    .link-title { font-size: 1.2rem; }
+  }
+</style>
+</head>
+<body>
+<div class="deco-circle-1"></div>
+<div class="deco-circle-2"></div>
+<div class="deco-circle-3"></div>
+
+<div class="container">
+  <div class="rule-top"></div>
+  <p class="label">Designer &amp; Creative Strategist</p>
+  <h1 class="name">Angelina<br><em>Silvestri</em></h1>
+  <p class="tagline">Los Angeles &mdash; USC MS Integrated Design, Business &amp; Technology &mdash; Iovine and Young Academy</p>
+
+  <div class="links">
+    <a class="link-item" href="https://linkedin.com/in/angelina-silvestri" target="_blank">
+      <div class="link-left">
+        <span class="link-platform">LinkedIn</span>
+        <span class="link-title">angelina-silvestri</span>
+      </div>
+      <span class="arrow">↗</span>
+    </a>
+    <a class="link-item" href="mailto:as42817@usc.edu">
+      <div class="link-left">
+        <span class="link-platform">USC Email</span>
+        <span class="link-title">as42817@usc.edu</span>
+      </div>
+      <span class="arrow">↗</span>
+    </a>
+    <a class="link-item" href="https://angelinasilver19.github.io" target="_blank">
+      <div class="link-left">
+        <span class="link-platform">Portfolio</span>
+        <span class="link-title">angelinasilver19.github.io</span>
+      </div>
+      <span class="arrow">↗</span>
+    </a>
+    <a class="link-item" href="mailto:angelinas.5119@gmail.com">
+      <div class="link-left">
+        <span class="link-platform">Email</span>
+        <span class="link-title">angelinas.5119@gmail.com</span>
+      </div>
+      <span class="arrow">↗</span>
+    </a>
+    <a class="link-item" href="https://instagram.com/angelina.silver" target="_blank">
+      <div class="link-left">
+        <span class="link-platform">Instagram</span>
+        <span class="link-title">@angelina.silver</span>
+      </div>
+      <span class="arrow">↗</span>
+    </a>
+  </div>
+
+  <div class="footer-row">
+    <span class="footer">2026</span>
+    <div class="dot-row">
+      <div class="dot dot-1"></div>
+      <div class="dot dot-2"></div>
+      <div class="dot dot-3"></div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
